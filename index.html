@@ -95,7 +95,7 @@
         links: [
           { name: "Tentang Kami", href: "#tentang" },
           { name: "Keunggulan", href: "#keunggulan" },
-          { name: "Outlet", href: "#outlet" },
+          
           { name: "Testimoni", href: "#testimoni" },
           { name: "Kontak", href: "#kontak" }
         ],
@@ -159,11 +159,7 @@
         { value: "3.800+", label: "Pesanan Sukses", desc: "Mahasiswa & keluarga Malang" },
         { value: "100%", label: "Jaminan Transparan", desc: "Struk kasir fisik disertakan" }
       ],
-      outlets: [
-        { name: "Gacoan Dinoyo", area: "Lowokwaru, Kota Malang", coverage: "UB, UIN, Polinema, Sumbersari" },
-        { name: "Gacoan Ciliwung", area: "Blimbing, Kota Malang", coverage: "Sutami, Suhat, Borobudur, Sulfat" },
-        { name: "Gacoan MT Haryono", area: "Dinoyo / Ketawanggede", coverage: "Kampus UB barat, Tlogomas, Merjosari" }
-      ],
+      
       testimonials: [
         {
           quote: "Beneran no markup sama sekali! Pas cek nota kasir di struk sama persis harganya dengan yang dibayar ke admin. Ongkir jastipnya pun sangat masuk akal dibanding antre 1 jam lebih di outlet.",
@@ -198,7 +194,7 @@
     <!-- Top Announcement Bar (Instagram) -->
   <div class="bg-gradient-to-r from-brand-magenta via-pink-600 to-brand-cyan text-white text-xs md:text-sm font-bold py-2 px-4 shadow-sm">
     <div class="max-w-7xl mx-auto flex items-center justify-center gap-2">
-      <i data-lucide="instagram" class="w-4 h-4"></i>
+      <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
       <span>Instagram:</span>
       <span class="tracking-wide uppercase font-extrabold bg-white/20 px-2.5 py-0.5 rounded-full">JASTIP GACOAN NO 1 DIMALANG</span>
     </div>
@@ -224,7 +220,7 @@
         <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
           <a href="#tentang" class="hover:text-brand-magenta transition-colors">Tentang Kami</a>
           <a href="#keunggulan" class="hover:text-brand-magenta transition-colors">Keunggulan 3 Pilar</a>
-          <a href="#outlet" class="hover:text-brand-magenta transition-colors">Area Outlet</a>
+          
           <a href="#testimoni" class="hover:text-brand-magenta transition-colors">Testimoni</a>
         </nav>
 
@@ -250,7 +246,7 @@
     <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3">
       <a href="#tentang" class="mobile-link block px-3 py-2 rounded-lg text-base font-bold text-slate-700 hover:bg-brand-lightpink hover:text-brand-magenta">Tentang Kami</a>
       <a href="#keunggulan" class="mobile-link block px-3 py-2 rounded-lg text-base font-bold text-slate-700 hover:bg-brand-lightpink hover:text-brand-magenta">Keunggulan 3 Pilar</a>
-      <a href="#outlet" class="mobile-link block px-3 py-2 rounded-lg text-base font-bold text-slate-700 hover:bg-brand-lightpink hover:text-brand-magenta">Area Outlet</a>
+      
       <a href="#testimoni" class="mobile-link block px-3 py-2 rounded-lg text-base font-bold text-slate-700 hover:bg-brand-lightpink hover:text-brand-magenta">Testimoni</a>
       <div class="pt-2">
         <a id="navWhatsappBtnMobile" href="#" target="_blank" class="w-full flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl text-base font-extrabold text-white bg-gradient-to-r from-brand-magenta to-brand-pink shadow-md">
@@ -656,7 +652,7 @@
           <ul class="space-y-2 text-xs font-semibold">
             <li><a href="#tentang" class="hover:text-white transition-colors">Tentang Kami</a></li>
             <li><a href="#keunggulan" class="hover:text-white transition-colors">Solusi 3 Pilar</a></li>
-            <li><a href="#outlet" class="hover:text-white transition-colors">Area Outlet Malang</a></li>
+            
             <li><a href="#testimoni" class="hover:text-white transition-colors">Testimoni Pelanggan</a></li>
           </ul>
         </div>
@@ -676,7 +672,7 @@
             </a>
             <div>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-pink-400 font-bold text-xs hover:underline">
-                <i data-lucide="instagram" class="w-4 h-4"></i>
+                <svg class="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
                 <span>JASTIP GACOAN NO 1 DIMALANG</span>
               </a>
             </div>
@@ -734,27 +730,7 @@
         `).join("");
       }
 
-      // 3. Render Outlets
-      const outletsContainer = document.getElementById("outletsContainer");
-      if (outletsContainer) {
-        outletsContainer.innerHTML = siteConfig.outlets.map((o) => `
-          <div class="bento-card bg-white border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:border-brand-pink/40">
-            <div class="flex items-center justify-between mb-4">
-              <span class="w-11 h-11 rounded-xl bg-brand-lightpink text-brand-magenta flex items-center justify-center font-bold">
-                <i data-lucide="store" class="w-6 h-6"></i>
-              </span>
-              <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200">
-                Layanan Aktif
-              </span>
-            </div>
-            <h4 class="font-extrabold text-lg text-slate-900 mb-1">${o.name}</h4>
-            <p class="text-xs text-brand-magenta font-bold mb-3">${o.area}</p>
-            <p class="text-xs text-slate-500"><strong class="text-slate-700">Cakupan Pengantaran:</strong> ${o.coverage}</p>
-          </div>
-        `).join("");
-      }
-
-      // 4. Render Testimonials
+      // 3. Render Testimonials
       const testimonialsContainer = document.getElementById("testimonialsContainer");
       if (testimonialsContainer) {
         testimonialsContainer.innerHTML = siteConfig.testimonials.map((t) => `
