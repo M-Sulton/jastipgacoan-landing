@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jastipgacoanmlg.id — Micro-Logistics Khusus Mie Gacoan Malang</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              magenta: '#E11D74',
+              pink: '#F03A88',
+              lightpink: '#FFF1F6',
+              darkpink: '#BE125A',
+              cyan: '#00B4D8',
+              cyanlight: '#E0F7FA',
+              dark: '#0F172A',
+              navy: '#0B132B'
+            }
+          },
+          animation: {
+            'marquee': 'marquee 25s linear infinite',
+            'float': 'float 3s ease-in-out infinite',
+          },
+          keyframes: {
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-6px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.90);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .bento-card {
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .bento-card:hover {
+      transform: translateY(-4px);
+    }
+    /* Stroke tebal untuk icon Lucide agar tidak kurus */
+    [data-lucide], svg.lucide {
+      stroke-width: 2.35px !important;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased selection:bg-brand-pink selection:text-white">
+
+  <!-- ========================================== -->
+  <!-- CONFIG SCRIPT (SINGLE SOURCE OF TRUTH)     -->
+  <!-- ========================================== -->
+  <script>
+    const siteConfig = {
+      brand: {
+        name: "jastipgacoanmlg.id",
+        tagline: "Micro-Logistics Khusus Mie Gacoan Malang",
+        logo: "/logo-square.png",
+        whatsapp: "6285726707724",
+        whatsappFormatted: "+62 857-2670-7724",
+        email: "jastipgacoanmlg@gmail.com",
+        waMessageDefault: "Halo Admin jastipgacoanmlg.id, saya mau titip pesan Mie Gacoan Malang."
+      },
+      nav: {
+        links: [
+          { name: "Tentang Kami", href: "#tentang" },
+          { name: "Keunggulan", href: "#keunggulan" },
+          { name: "Outlet", href: "#outlet" },
+          { name: "Testimoni", href: "#testimoni" },
+          { name: "Kontak", href: "#kontak" }
+        ],
+        ctaText: "Order Via WhatsApp"
+      },
+      hero: {
+        trustBadge: "Dipercaya Mahasiswa & Warga Malang Setiap Hari",
+        headline: "Nikmati Mie Gacoan Favorit Tanpa Antre, Tanpa Markup.",
+        subheadline: "jastipgacoanmlg.id adalah jaringan micro-logistics khusus pengantaran Mie Gacoan di Malang. Kami mengintegrasikan efisiensi waktu, transparansi nota asli tanpa markup, dan alur distribusi terstruktur untuk memastikan pesanan Anda tiba secara cepat, rapi, dan tepat waktu.",
+        primaryCta: "Pesan Sekarang",
+        secondaryCta: "Lihat Bukti Transparansi",
+        guarantees: [
+          "100% Struk Kasir Asli",
+          "Bebas Antre Berjam-jam",
+          "Kurir Terverifikasi & Cepat"
+        ]
+      },
+      marquee: [
+        "Gacoan Sulfat",
+        "Gacoan Dinoyo",
+        "Gacoan MT Haryono",
+        "Gacoan Klojen",
+        "Gacoan Ciliwung",
+        "Gacoan Borobudur"
+      ],
+      corePillars: [
+        {
+          id: "zero-markup",
+          badge: "Transparansi Penuh",
+          title: "Solusi Zero Markup",
+          subtitle: "100% Harga Asli Outlet",
+          description: "Kami menghadirkan kepastian bagi Anda. Harga menu murni sesuai cetakan kasir resmi Gacoan tanpa ada markup sepeser pun. Struk fisik asli langsung kami lampirkan bersama pesanan.",
+          icon: "receipt",
+          highlight: "Foto struk fisik dikirim ke chat Anda sebelum kurir berangkat.",
+          metric: "Rp 0 Markup Menu"
+        },
+        {
+          id: "efisiensi-waktu",
+          badge: "Bebas Capek",
+          title: "Solusi Efisiensi Waktu",
+          subtitle: "Tanpa Antre & Gak Ribet",
+          description: "Kami menghadirkan kemudahan mutlak. Anda tidak perlu membuang waktu berjam-jam untuk mengantre di terik matahari atau keluar kos/rumah. Semua alur pemesanan diatur secara sistematis dan terstruktur.",
+          icon: "clock-3",
+          highlight: "Hemat hingga 90 menit waktu berharga Anda.",
+          metric: "90+ Menit Terhemat"
+        },
+        {
+          id: "kecepatan-pengantaran",
+          badge: "Presisi Logistik",
+          title: "Solusi Kecepatan Pengantaran",
+          subtitle: "Tepat Waktu & Kondisi Hangat",
+          description: "Kami menghadirkan ketepatan logistik. Didukung oleh sistem pengantaran cepat dan kurir terverifikasi dengan thermal bag khusus, memastikan pesanan tiba dalam kondisi renyah dan hangat langsung di tempat Anda.",
+          icon: "bike",
+          highlight: "Packing higienis ber-segel & aman dari tumpahan kuah/saus.",
+          metric: "Thermal-Safe Delivery"
+        }
+      ],
+      metrics: [
+        { value: "0%", label: "Markup Harga Menu", desc: "Murni nota kasir resmi" },
+        { value: "15-25m", label: "Rata-rata Distribusi", desc: "Sejak pesanan selesai kasir" },
+        { value: "3.800+", label: "Pesanan Sukses", desc: "Mahasiswa & keluarga Malang" },
+        { value: "100%", label: "Jaminan Transparan", desc: "Struk kasir fisik disertakan" }
+      ],
+      outlets: [
+        { name: "Gacoan Dinoyo", area: "Lowokwaru, Kota Malang", coverage: "UB, UIN, Polinema, Sumbersari" },
+        { name: "Gacoan Ciliwung", area: "Blimbing, Kota Malang", coverage: "Sutami, Suhat, Borobudur, Sulfat" },
+        { name: "Gacoan MT Haryono", area: "Dinoyo / Ketawanggede", coverage: "Kampus UB barat, Tlogomas, Merjosari" }
+      ],
+      testimonials: [
+        {
+          quote: "Beneran no markup sama sekali! Pas cek nota kasir di struk sama persis harganya dengan yang dibayar ke admin. Ongkir jastipnya pun sangat masuk akal dibanding antre 1 jam lebih di outlet.",
+          name: "Rizky Firmansyah",
+          role: "Mahasiswa UB Lowokwaru",
+          avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80"
+        },
+        {
+          quote: "Penyelamat pas lagi ngerjain skripsi tengah malem. Tinggal WA, pilih level pedas dan dimsum favorit, kurir langsung antar tepat waktu dan kondisinya masih crispy hangat.",
+          name: "Amalia Putri",
+          role: "Penghuni Kost Sigura-gura",
+          avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80"
+        },
+        {
+          quote: "Sistem alur pemesanannya sangat terstruktur. Format order rapi, ada konfirmasi foto nota kasir, packaging rapi gak tumpah. Recommended banget buat warga Malang!",
+          name: "Bagas Wicaksono",
+          role: "Remote Worker Blimbing",
+          avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80"
+        }
+      ],
+      footer: {
+        address: "Area Operasional: Seluruh Kota Malang (Dinoyo, Suhat, Sulfat, Klojen, Blimbing, Sukun)",
+        schedule: "Operasional: Setiap Hari 10:00 - 22:30 WIB",
+        copyright: "© 2025 jastipgacoanmlg.id. Layanan Micro-Logistics Khusus & Independen Malang. Tidak berafiliasi resmi dengan PT Pesta Pora Abadi."
+      }
+    };
+  </script>
+
+  <!-- ========================================== -->
+  <!-- NAVBAR                                     -->
+  <!-- ========================================== -->
+  <header class="glass-nav sticky top-0 z-50 border-b border-slate-200/80 transition-all duration-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-3.5 group">
+          <img src="/logo-square.png" alt="jastipgacoanmlg.id" class="h-12 w-12 rounded-xl object-cover shadow-sm border border-brand-pink/30 transition-transform group-hover:scale-105">
+          <div class="flex flex-col">
+            <span class="font-extrabold text-xl tracking-tight text-slate-900 group-hover:text-brand-magenta transition-colors">
+              jastipgacoan<span class="text-brand-magenta">mlg.id</span>
+            </span>
+            <span class="text-[11px] font-bold text-brand-cyan tracking-wider uppercase -mt-0.5">
+              Micro-Logistics Malang
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-8 text-sm font-bold text-slate-600">
+          <a href="#tentang" class="hover:text-brand-magenta transition-colors">Tentang Kami</a>
+          <a href="#keunggulan" class="hover:text-brand-magenta transition-colors">Keunggulan 3 Pilar</a>
+          <a href="#outlet" class="hover:text-brand-magenta transition-colors">Area Outlet</a>
+          <a href="#testimoni" class="hover:text-brand-magenta transition-colors">Testimoni</a>
+        </nav>
+
+        <!-- CTA Button -->
+        <div class="hidden md:flex items-center gap-3">
+          <a id="navWhatsappBtn" href="#" target="_blank" class="inline-flex items-center gap-2.5 px-6 py-2.5 rounded-full text-sm font-extrabold text-white bg-gradient-to-r from-brand-magenta to-brand-pink shadow-md shadow-brand-pink/25 hover:shadow-lg hover:shadow-brand-pink/35 hover:scale-[1.02] active:scale-[0.98] transition-all">
+            <i data-lucide="message-circle" class="w-5 h-5"></i>
+            <span>Order WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger Button -->
+        <div class="flex md:hidden">
+          <button id="mobileMenuToggle" class="p-2 rounded-lg text-slate-700 hover:text-slate-900 hover:bg-slate-100 focus:outline-none">
+            <i data-lucide="menu" id="menuIcon" class="w-7 h-7"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <div id="mobileMenu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 pt-3 pb-6 space-y-3">
+      <a href="#tentang" class="mobile-link block px-3 py-2 rounded-lg text-base font-bold text-slate-700 hover:bg-brand-lightpink hover:text-brand-magenta">Tentang Kami</a>
+      <a href="#keunggulan" class="mobile-link block px-3 py-2 rounded-lg text-base font-bold text-slate-700 hover:bg-brand-lightpink hover:text-brand-magenta">Keunggulan 3 Pilar</a>
+      <a href="#outlet" class="mobile-link block px-3 py-2 rounded-lg text-base font-bold text-slate-700 hover:bg-brand-lightpink hover:text-brand-magenta">Area Outlet</a>
+      <a href="#testimoni" class="mobile-link block px-3 py-2 rounded-lg text-base font-bold text-slate-700 hover:bg-brand-lightpink hover:text-brand-magenta">Testimoni</a>
+      <div class="pt-2">
+        <a id="navWhatsappBtnMobile" href="#" target="_blank" class="w-full flex items-center justify-center gap-2.5 px-5 py-3.5 rounded-xl text-base font-extrabold text-white bg-gradient-to-r from-brand-magenta to-brand-pink shadow-md">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+          <span>Order Via WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- HERO SECTION                               -->
+  <!-- ========================================== -->
+  <section id="tentang" class="relative pt-14 pb-20 md:pt-24 md:pb-28 overflow-hidden">
+    <!-- Subtle Background Accents -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-96 bg-gradient-to-b from-pink-100/60 via-cyan-50/40 to-transparent -z-10 blur-3xl pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto">
+        <!-- Trust Badge -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-brand-lightpink border border-brand-pink/30 text-brand-magenta text-xs md:text-sm font-bold shadow-sm mb-6 animate-pulse">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-magenta"></span>
+          <span id="heroBadgeText">Dipercaya Mahasiswa & Warga Malang Setiap Hari</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.15] mb-6">
+          Nikmati Mie Gacoan Favorit <br class="hidden sm:inline">
+          <span class="bg-gradient-to-r from-brand-magenta via-pink-600 to-brand-cyan bg-clip-text text-transparent">
+            Tanpa Antre, Tanpa Markup.
+          </span>
+        </h1>
+
+        <!-- Subheadline (verbatim core value) -->
+        <p class="text-base sm:text-lg text-slate-600 font-medium leading-relaxed mb-8 max-w-2xl mx-auto">
+          <strong class="text-slate-900 font-semibold">jastipgacoanmlg.id</strong> adalah jaringan micro-logistics khusus pengantaran Mie Gacoan di Malang. Kami mengintegrasikan efisiensi waktu, transparansi nota asli tanpa markup, dan alur distribusi terstruktur untuk memastikan pesanan Anda tiba secara cepat, rapi, dan tepat waktu.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a id="heroPrimaryCta" href="#" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-base font-extrabold text-white bg-gradient-to-r from-brand-magenta to-brand-pink shadow-lg shadow-brand-pink/30 hover:shadow-xl hover:shadow-brand-pink/40 hover:-translate-y-0.5 active:translate-y-0 transition-all">
+            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+            <span>Pesan Sekarang (WhatsApp)</span>
+          </a>
+          <a href="#keunggulan" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-base font-bold text-slate-700 bg-white border border-slate-300 shadow-sm hover:bg-slate-100 hover:text-slate-900 transition-all">
+            <i data-lucide="shield-check" class="w-5 h-5 text-brand-cyan"></i>
+            <span>3 Pilar Solusi Kami</span>
+          </a>
+        </div>
+
+        <!-- Micro Guarantees -->
+        <div class="mt-10 flex flex-wrap items-center justify-center gap-6 text-xs sm:text-sm font-bold text-slate-600">
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i>
+            <span>100% Struk Kasir Asli</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i>
+            <span>Bebas Antre Berjam-jam</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500"></i>
+            <span>Kurir Handal & Terverifikasi</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- MARQUEE RUNNING OUTLETS                    -->
+  <!-- ========================================== -->
+  <section class="border-y border-slate-200/80 bg-white py-4 overflow-hidden relative">
+    <div class="flex items-center">
+      <div class="flex items-center whitespace-nowrap animate-marquee gap-12 font-extrabold text-xs sm:text-sm tracking-wider uppercase text-slate-400 select-none">
+        <span class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand-magenta"></i> GACOAN DINOYO MALANG</span>
+        <span class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand-cyan"></i> GACOAN SULFAT MALANG</span>
+        <span class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand-magenta"></i> GACOAN MT HARYONO</span>
+        <span class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand-cyan"></i> GACOAN CILIWUNG</span>
+        <span class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand-magenta"></i> GACOAN KLOJEN</span>
+        <span class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand-cyan"></i> GACOAN BOROBUDUR</span>
+        <!-- Repeated for seamless infinite loop -->
+        <span class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand-magenta"></i> GACOAN DINOYO MALANG</span>
+        <span class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand-cyan"></i> GACOAN SULFAT MALANG</span>
+        <span class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand-magenta"></i> GACOAN MT HARYONO</span>
+        <span class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand-cyan"></i> GACOAN CILIWUNG</span>
+        <span class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand-magenta"></i> GACOAN KLOJEN</span>
+        <span class="flex items-center gap-2.5"><i data-lucide="map-pin" class="w-4 h-4 text-brand-cyan"></i> GACOAN BOROBUDUR</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- BENTO GRID: 3 PILAR UTAMA & SOLUSI        -->
+  <!-- ========================================== -->
+  <section id="keunggulan" class="py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-magenta bg-brand-lightpink px-4 py-1.5 rounded-full border border-brand-pink/20">
+          Mengapa Memilih Kami?
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-4">
+          Solusi Cerdas Micro-Logistik jastipgacoanmlg.id
+        </h2>
+        <p class="text-slate-600 mt-3 text-base max-w-2xl mx-auto leading-relaxed">
+          <strong class="text-slate-900 font-semibold">jastipgacoanmlg.id</strong> adalah jaringan micro-logistics khusus pengantaran Mie Gacoan di Malang.<br><br>
+          Kami mengintegrasikan efisiensi waktu, transparansi nota asli tanpa markup, dan alur distribusi terstruktur untuk memastikan pesanan Anda tiba secara cepat, rapi, dan tepat waktu.
+        </p>
+      </div>
+
+      <!-- Bento Grid Layout -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- Card 1 (WIDE): Zero Markup -->
+        <div class="bento-card lg:col-span-8 bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-10 shadow-sm relative overflow-hidden flex flex-col justify-between">
+          <div class="absolute -right-16 -top-16 w-64 h-64 bg-pink-100/60 rounded-full blur-2xl pointer-events-none"></div>
+          
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-pink-100 text-brand-magenta border border-brand-pink/20">
+                <i data-lucide="shield-check" class="w-4 h-4"></i>
+                Pilar 1: Transparansi Total
+              </span>
+              <span class="text-xs font-extrabold px-3 py-1 bg-slate-100 text-slate-800 rounded-lg">Rp 0 Markup Menu</span>
+            </div>
+
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2">
+              Solusi Zero Markup <span class="text-brand-magenta">(100% Harga Asli Outlet)</span>
+            </h3>
+            <p class="text-slate-600 text-base sm:text-lg leading-relaxed mb-6">
+              Kami menghadirkan kepastian bagi Anda. Harga menu murni sesuai cetakan kasir resmi Gacoan tanpa ada markup sepeser pun.
+            </p>
+          </div>
+
+          <!-- Feature Detail Component inside Bento -->
+          <div class="mt-4 pt-6 border-t border-slate-100 grid grid-cols-1 sm:grid-cols-2 gap-4 bg-slate-50 p-5 rounded-2xl border border-slate-200/70">
+            <div class="flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-brand-lightpink text-brand-magenta flex items-center justify-center shrink-0">
+                <i data-lucide="file-text" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="font-extrabold text-sm text-slate-900">Struk Asli Dilampirkan</p>
+                <p class="text-xs text-slate-500 mt-0.5">Nota fisik kasir difoto dan disertakan ke pembeli.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3.5">
+              <div class="w-10 h-10 rounded-xl bg-brand-cyanlight text-brand-cyan flex items-center justify-center shrink-0">
+                <i data-lucide="tag" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <p class="font-extrabold text-sm text-slate-900">Ongkir Jastip Flat & Terbuka</p>
+                <p class="text-xs text-slate-500 mt-0.5">Hanya membayar jasa kurir, tanpa margin terselubung.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Card 2: Efisiensi Waktu -->
+        <div class="bento-card lg:col-span-4 bg-white border border-slate-200/90 rounded-3xl p-8 shadow-sm relative overflow-hidden flex flex-col justify-between">
+          <div class="absolute -right-12 -bottom-12 w-48 h-48 bg-cyan-100/50 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-cyan-100 text-brand-cyan border border-brand-cyan/20">
+                <i data-lucide="clock" class="w-4 h-4"></i>
+                Pilar 2: Efisiensi
+              </span>
+            </div>
+
+            <div class="w-14 h-14 rounded-2xl bg-brand-cyanlight text-brand-cyan flex items-center justify-center mb-6">
+              <i data-lucide="hourglass" class="w-7 h-7"></i>
+            </div>
+
+            <h3 class="text-xl sm:text-2xl font-extrabold text-slate-900 mb-2">
+              Solusi Efisiensi Waktu
+            </h3>
+            <p class="text-xs font-extrabold text-brand-cyan uppercase tracking-wider mb-3">Tanpa Antre & Gak Ribet</p>
+            
+            <p class="text-slate-600 text-sm leading-relaxed mb-6">
+              Kami menghadirkan kemudahan mutlak. Anda tidak perlu membuang waktu berjam-jam untuk mengantre atau keluar kamar. Semua alur pemesanan diatur secara sistematis dan terstruktur.
+            </p>
+          </div>
+
+          <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70 flex items-center justify-between text-xs font-bold text-slate-700">
+            <span>Rata-rata Waktu Dihemat</span>
+            <span class="text-brand-magenta font-extrabold text-sm">~60 - 90 Menit</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Kecepatan Pengantaran (WIDE Full) -->
+        <div class="bento-card lg:col-span-12 bg-white border border-slate-200/90 rounded-3xl p-8 sm:p-10 shadow-sm relative overflow-hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div class="lg:col-span-7">
+              <div class="flex items-center gap-2 mb-4">
+                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-pink-100 text-brand-magenta border border-brand-pink/20">
+                  <i data-lucide="zap" class="w-4 h-4"></i>
+                  Pilar 3: Logistik Tangguh
+                </span>
+              </div>
+
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-2">
+                Solusi Kecepatan Pengantaran
+              </h3>
+              <p class="text-sm font-extrabold text-brand-magenta uppercase tracking-wider mb-4">
+                Tepat Waktu & Kondisi Aman Terjamin
+              </p>
+
+              <p class="text-slate-600 text-base leading-relaxed mb-6">
+                Kami menghadirkan ketepatan logistik. Didukung oleh sistem pengantaran yang cepat dan kurir terverifikasi, memastikan pesanan tiba dalam kondisi terbaiknya langsung di tempat Anda.
+              </p>
+
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
+                  <i data-lucide="package" class="w-6 h-6 text-brand-magenta mb-1.5"></i>
+                  <p class="font-extrabold text-xs text-slate-900">Thermal Safety</p>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Mie tetap hangat & pangsit tetap renyah</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
+                  <i data-lucide="map" class="w-6 h-6 text-brand-cyan mb-1.5"></i>
+                  <p class="font-extrabold text-xs text-slate-900">Alur Rute Cerdas</p>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Kurir memilih outlet terdekat dari lokasi Anda</p>
+                </div>
+                <div class="p-4 rounded-xl bg-slate-50 border border-slate-200/70">
+                  <i data-lucide="user-check" class="w-6 h-6 text-brand-magenta mb-1.5"></i>
+                  <p class="font-extrabold text-xs text-slate-900">Kurir Terverifikasi</p>
+                  <p class="text-[11px] text-slate-500 mt-0.5">Tim pengantar sopan, rapi, dan terpercaya</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Graphic / UI Preview Box -->
+            <div class="lg:col-span-5 bg-gradient-to-br from-slate-900 to-brand-navy rounded-2xl p-6 text-white shadow-xl relative">
+              <div class="flex items-center justify-between pb-4 border-b border-slate-700/60 mb-4">
+                <span class="text-xs font-mono font-bold text-brand-cyan">STATUS ORDER SISTEM</span>
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded text-[10px] font-bold bg-emerald-500/20 text-emerald-300">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span> LIVE
+                </span>
+              </div>
+              <div class="space-y-3 font-mono text-xs">
+                <div class="flex items-center justify-between text-slate-300">
+                  <span>Nota Kasir Resmi:</span>
+                  <span class="text-white font-bold">MATCH 100% (No Markup)</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-300">
+                  <span>Antrean Fisik:</span>
+                  <span class="text-emerald-400 font-bold">Dihandle Kurir jastipgacoan</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-300">
+                  <span>Thermal Packaging:</span>
+                  <span class="text-brand-pink font-bold">Secured & Crispy</span>
+                </div>
+                <div class="flex items-center justify-between text-slate-300">
+                  <span>Estimasi Sampai:</span>
+                  <span class="text-yellow-300 font-bold">Tepat Waktu ke Kos/Rumah</span>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-slate-700/60">
+                <a id="previewWhatsappBtn" href="#" target="_blank" class="w-full flex items-center justify-center gap-2 py-3 rounded-xl bg-brand-pink hover:bg-brand-magenta text-white text-xs font-extrabold transition-colors shadow-md">
+                  <i data-lucide="send" class="w-4 h-4"></i>
+                  Hubungi Kurir Sekarang
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- KEY METRICS / STATS SECTION                -->
+  <!-- ========================================== -->
+  <section class="py-16 bg-white border-y border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div id="metricsContainer" class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-200">
+        <!-- Rendered via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- OUTLETS / COVERAGE PROJECTS                -->
+  <!-- ========================================== -->
+  <section id="outlet" class="py-20 md:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-cyan bg-cyan-100 px-4 py-1.5 rounded-full border border-cyan-200">
+          Cakupan Area Logistik
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-4">
+          Hub Outlet Mie Gacoan Malang
+        </h2>
+        <p class="text-slate-600 mt-3 text-base">
+          Kurir kami standby di sekitar titik outlet strategis untuk meminimalkan waktu penjemputan dan pengantaran ke tempat Anda.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="outletsContainer">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- TESTIMONIALS SECTION                       -->
+  <!-- ========================================== -->
+  <section id="testimoni" class="py-20 md:py-28 bg-white border-t border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-brand-magenta bg-brand-lightpink px-4 py-1.5 rounded-full border border-brand-pink/20">
+          Ulasan Nyata
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-4">
+          Apa Kata Pelanggan Setia Kami?
+        </h2>
+        <p class="text-slate-600 mt-3 text-base">
+          Kepuasan dan transparansi adalah prioritas utama setiap trip kurir jastipgacoanmlg.id.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="testimonialsContainer">
+        <!-- Rendered via JS -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- CTA / WA CONTACT BANNER                    -->
+  <!-- ========================================== -->
+  <section id="kontak" class="py-16 md:py-24 bg-gradient-to-br from-brand-dark via-brand-navy to-slate-900 text-white relative overflow-hidden">
+    <div class="absolute -right-24 -bottom-24 w-96 h-96 bg-brand-magenta/20 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -left-24 -top-24 w-96 h-96 bg-brand-cyan/20 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      
+      <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-brand-pink text-xs font-bold mb-6">
+        <i data-lucide="sparkles" class="w-4 h-4"></i>
+        <span>Pesan Sekarang Langsung Dikirim Hari Ini</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight mb-6">
+        Mau Makan Mie Gacoan Hari Ini? <br>
+        <span class="text-brand-pink">Biar Kurir Kami yang Antrekan.</span>
+      </h2>
+
+      <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8 font-normal leading-relaxed">
+        Kirim list menu favorit Anda sekarang via WhatsApp resmi. Kami verifikasi pesanan, fotokan nota asli kasir, dan antar segera ke alamat Anda.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a id="ctaWhatsappBannerBtn" href="#" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl text-base font-extrabold text-white bg-gradient-to-r from-brand-magenta to-brand-pink shadow-xl shadow-brand-pink/30 hover:scale-105 active:scale-95 transition-all">
+          <i data-lucide="message-circle" class="w-6 h-6"></i>
+          <span>Chat WhatsApp (+62 857-2670-7724)</span>
+        </a>
+      </div>
+
+      <div class="mt-8 text-xs text-slate-400 font-mono">
+        Alur: Kirim Pesanan ➔ Konfirmasi ➔ Pembayaran Nota Sesuai Struk ➔ Diantar
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- FOOTER                                     -->
+  <!-- ========================================== -->
+  <footer class="bg-slate-900 text-slate-400 text-sm py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-10 border-b border-slate-800">
+        
+        <!-- Col 1: Brand -->
+        <div class="md:col-span-2 space-y-4">
+          <div class="flex items-center gap-3.5">
+            <img src="/logo-square.png" alt="Logo" class="h-12 w-12 rounded-xl object-cover border border-brand-pink/30">
+            <span class="font-extrabold text-lg text-white">jastipgacoan<span class="text-brand-magenta">mlg.id</span></span>
+          </div>
+          <p class="text-xs text-slate-400 leading-relaxed max-w-md">
+            Jaringan micro-logistics khusus pengantaran Mie Gacoan di Malang. Menghadirkan efisiensi waktu, transparansi nota asli tanpa markup, dan pengantaran terpercaya.
+          </p>
+          <div class="text-xs text-slate-400">
+            <p id="footerAddress" class="font-medium"></p>
+            <p id="footerSchedule" class="text-brand-cyan font-medium mt-1"></p>
+          </div>
+        </div>
+
+        <!-- Col 2: Nav Quicklinks -->
+        <div>
+          <h4 class="text-white font-extrabold text-xs uppercase tracking-wider mb-4">Navigasi</h4>
+          <ul class="space-y-2 text-xs font-semibold">
+            <li><a href="#tentang" class="hover:text-white transition-colors">Tentang Kami</a></li>
+            <li><a href="#keunggulan" class="hover:text-white transition-colors">Solusi 3 Pilar</a></li>
+            <li><a href="#outlet" class="hover:text-white transition-colors">Area Outlet Malang</a></li>
+            <li><a href="#testimoni" class="hover:text-white transition-colors">Testimoni Pelanggan</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Direct Contact -->
+        <div>
+          <h4 class="text-white font-extrabold text-xs uppercase tracking-wider mb-4">Kontak Resmi</h4>
+          <p class="text-xs text-slate-400 mb-2">Pemesanan & Kerjasama Jastip:</p>
+          <a id="footerWaLink" href="#" target="_blank" class="inline-flex items-center gap-2 text-brand-pink font-extrabold text-sm hover:underline mb-2">
+            <i data-lucide="phone-call" class="w-4 h-4"></i>
+            <span id="footerWaNumber"></span>
+          </a>
+          <div class="mt-2">
+            <a href="mailto:jastipgacoanmlg@gmail.com" class="inline-flex items-center gap-2 text-brand-cyan font-bold text-xs hover:underline">
+              <i data-lucide="mail" class="w-4 h-4"></i>
+              <span>jastipgacoanmlg@gmail.com</span>
+            </a>
+          </div>
+          <p class="text-[11px] text-slate-500 mt-3">Kota Malang, Jawa Timur, Indonesia</p>
+        </div>
+
+      </div>
+
+      <!-- Copyright & Disclaimer -->
+      <div class="pt-8 text-center text-xs text-slate-500 leading-relaxed">
+        <p id="footerCopyright"></p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- DYNAMIC RENDER SCRIPT (siteConfig driven)  -->
+  <!-- ========================================== -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Build WhatsApp Target Link
+      const waUrl = `https://wa.me/${siteConfig.brand.whatsapp}?text=${encodeURIComponent(siteConfig.brand.waMessageDefault)}`;
+      
+      // Bind CTA buttons to WhatsApp
+      const bindWa = (id) => {
+        const el = document.getElementById(id);
+        if (el) el.href = waUrl;
+      };
+      bindWa("navWhatsappBtn");
+      bindWa("navWhatsappBtnMobile");
+      bindWa("heroPrimaryCta");
+      bindWa("previewWhatsappBtn");
+      bindWa("ctaWhatsappBannerBtn");
+      bindWa("footerWaLink");
+
+      // Bind Footer Data
+      document.getElementById("footerWaNumber").innerText = siteConfig.brand.whatsappFormatted;
+      document.getElementById("footerAddress").innerText = siteConfig.footer.address;
+      document.getElementById("footerSchedule").innerText = siteConfig.footer.schedule;
+      document.getElementById("footerCopyright").innerText = siteConfig.footer.copyright;
+
+      // 2. Render Metrics
+      const metricsContainer = document.getElementById("metricsContainer");
+      if (metricsContainer) {
+        metricsContainer.innerHTML = siteConfig.metrics.map((m) => `
+          <div class="px-4 py-4 md:py-0">
+            <p class="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-brand-magenta to-brand-cyan bg-clip-text text-transparent">
+              ${m.value}
+            </p>
+            <p class="font-extrabold text-sm text-slate-900 mt-2">${m.label}</p>
+            <p class="text-xs text-slate-500 mt-0.5">${m.desc}</p>
+          </div>
+        `).join("");
+      }
+
+      // 3. Render Outlets
+      const outletsContainer = document.getElementById("outletsContainer");
+      if (outletsContainer) {
+        outletsContainer.innerHTML = siteConfig.outlets.map((o) => `
+          <div class="bento-card bg-white border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:border-brand-pink/40">
+            <div class="flex items-center justify-between mb-4">
+              <span class="w-11 h-11 rounded-xl bg-brand-lightpink text-brand-magenta flex items-center justify-center font-bold">
+                <i data-lucide="store" class="w-6 h-6"></i>
+              </span>
+              <span class="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200">
+                Layanan Aktif
+              </span>
+            </div>
+            <h4 class="font-extrabold text-lg text-slate-900 mb-1">${o.name}</h4>
+            <p class="text-xs text-brand-magenta font-bold mb-3">${o.area}</p>
+            <p class="text-xs text-slate-500"><strong class="text-slate-700">Cakupan Pengantaran:</strong> ${o.coverage}</p>
+          </div>
+        `).join("");
+      }
+
+      // 4. Render Testimonials
+      const testimonialsContainer = document.getElementById("testimonialsContainer");
+      if (testimonialsContainer) {
+        testimonialsContainer.innerHTML = siteConfig.testimonials.map((t) => `
+          <div class="bento-card bg-slate-50 border border-slate-200/80 rounded-2xl p-6 shadow-sm flex flex-col justify-between">
+            <div>
+              <div class="flex items-center gap-1 text-amber-400 mb-4">
+                ${'<i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>'.repeat(5)}
+              </div>
+              <p class="text-slate-700 text-sm leading-relaxed italic mb-6">"${t.quote}"</p>
+            </div>
+            <div class="flex items-center gap-3 pt-4 border-t border-slate-200/60">
+              <img src="${t.avatar}" alt="${t.name}" class="w-10 h-10 rounded-full object-cover border border-brand-pink/30">
+              <div>
+                <p class="font-extrabold text-sm text-slate-900">${t.name}</p>
+                <p class="text-xs text-slate-500">${t.role}</p>
+              </div>
+            </div>
+          </div>
+        `).join("");
+      }
+
+      // 5. Mobile Menu Toggle
+      const mobileToggle = document.getElementById("mobileMenuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      mobileToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu on link click
+      document.querySelectorAll(".mobile-link").forEach(link => {
+        link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+      });
+
+      // 6. Initialize Lucide Icons
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    });
+  </script>
+</body>
+</html>
